@@ -57,7 +57,7 @@ namespace KatlaSport.Services.HiveManagement
         /// <inheritdoc/>
         public async Task<Hive> CreateHiveAsync(UpdateHiveRequest createRequest)
         {
-            var dbHives =await _context.Hives.Where(h => h.Code == createRequest.Code).ToArrayAsync();
+            var dbHives = await _context.Hives.Where(h => h.Code == createRequest.Code).ToArrayAsync();
             if (dbHives.Length > 0)
             {
                 throw new RequestedResourceHasConflictException("code");
